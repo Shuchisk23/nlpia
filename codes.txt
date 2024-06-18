@@ -1,0 +1,29 @@
+nltk.download('punkt')
+from nltk.tokenize import word_tokenize,sent_tokenize
+
+text = "Bonjour le monde! Ceci est un texte simple. "
+
+sentences = sent_tokenize(text)
+print("sentences :",sentences)
+
+word = word_tokenize(text,language="French")
+print("words:",word)
+
+……………………………………………….
+
+from nltk.corpus import brown
+
+nltk.download('brown')
+nltk.download('stopwords')
+
+brown_corpus = brown.words()
+word_count = brown_corpus.count('the')
+print("\nOccurrences of 'the' in the brown corpus", word_count)
+
+collocations = nltk.Text(brown_corpus).collocation_list()
+print("\nCollocations in the brown corpus.")
+print(collocations)
+
+fdist = nltk.FreqDist(brown_corpus)
+print("\nMost common words in the brown corpus.")
+print(fdist.most_common(10))
